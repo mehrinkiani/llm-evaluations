@@ -96,8 +96,8 @@ def test_all_samples(file_name):
 if __name__ == "__main__":
     # Run tests and get results
 
-    file_name = "evaluation_results/01_unit_evaluations_results.csv"
-    bar_plot_file_name = "evaluation_results/01_unit_evaluations_plot.png"
+    file_name = "01_unit_evaluation_results/01_unit_evaluations_results.csv"
+    bar_plot_file_name = "01_unit_evaluation_results/01_unit_evaluations_plot.png"
     results = test_all_samples(file_name)
 
     # Print summary
