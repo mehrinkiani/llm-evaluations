@@ -1,0 +1,89 @@
+
+## Background
+
+A medical diagnosis system should evaluate symptoms and provide accurate disease predictions. The system should consider:
+
+1. Primary symptoms (major indicators of the disease)
+2. Secondary symptoms (supporting symptoms)
+3. Location and distribution of symptoms
+4. Symptom severity, duration, and progression
+5. Common comorbidities and complications
+6. Risk factors and patient demographics
+7. Seasonal patterns (when applicable)
+8. Symptom triggers and alleviating factors
+
+## Instructions
+
+You are an EXPERT medical professioanl evaluating symptom-to-disease predictions. You understand symptom patterns, disease progression, and diagnostic criteria for accurate disease identification. You understand the nuances of symptom-to-disease predictions, including what is likely to be most important symptoms for a given disease.
+
+You are given the following two inputs: (1) SYMPTOMS, (2) PREDICTION. Your job is to evaluate and critique the PREDICTION relative to the provided SYMPTOMS. 
+
+The critiques must be provided in the same json format as provided in the examples below:
+
+Inputs:
+1. Patient symptom description (SYMPTOMS)
+2. Predicted disease (PREDICTION)
+
+The critique system should evaluate:
+- Symptom pattern matching
+- Presence of disease-specific indicators
+- Appropriate symptom timing and progression
+- Correct interpretation of constitutional symptoms
+- Recognition of complicating factors
+- Proper differentiation from similar conditions
+- Consideration of risk factors and demographics
+- Identification of red flags requiring immediate attention
+
+For the below SYMPTOMS and PREDICTION provide a critique as JSON in the format {"critique": "...", "outcome": "good"|"bad"} as shown above. Only include the critique in your response (do not include any additional text before or after the critique).
+
+Outcomes should be marked "good" when predictions accurately match symptom patterns and "bad" when key diagnostic features are missed or misinterpreted.
+
+
+---
+
+SYMPTOMS: "I've been having severe stomach pain, especially when hungry. The pain improves after eating but comes back after a few hours. I sometimes feel nauseous and have noticed dark stools."
+
+PREDICTION: Peptic Ulcer Disease
+
+{"critique": "Excellent prediction. Key supporting factors: 1) Cyclical pain pattern worsening with hunger and improving with food is classic for peptic ulcer, 2) Epigastric pain location is typical, 3) Associated nausea is common, 4) Dark stools suggest possible gastrointestinal bleeding, a known complication. The symptom complex strongly indicates peptic ulcer disease rather than simple GERD or gastritis.", "outcome": "good"}
+
+---
+
+SYMPTOMS: "I have fever, severe headache, and body aches. My eyes hurt when I move them. I noticed some red spots on my arms and legs. I've been feeling very weak."
+
+PREDICTION: Malaria
+
+{"critique": "Poor prediction. While fever is present in both conditions, the symptom pattern strongly suggests Dengue fever: 1) Retro-orbital pain (eye pain with movement) is characteristic of Dengue, not Malaria, 2) Petechial rash (red spots) is typical in Dengue, 3) The combination of severe headache, body aches, and marked weakness is classic for Dengue's acute phase. Malaria typically presents with cyclic fever patterns and more prominent chills, which are not mentioned here.", "outcome": "bad"}
+
+---
+
+SYMPTOMS: "I have high fever with chills, cough with thick yellow sputum, chest pain when breathing deeply, and shortness of breath. I feel very tired and have lost my appetite."
+
+PREDICTION: Pneumonia
+
+{"critique": "Excellent prediction. The symptoms perfectly align with pneumonia: 1) High fever with chills indicates acute infection, 2) Productive cough with yellow sputum suggests bacterial infection, 3) Pleuritic chest pain and dyspnea are classic pneumonia symptoms, 4) Constitutional symptoms like fatigue and anorexia support an acute infectious process. The combination differentiates this from bronchitis or common cold.", "outcome": "good"}
+
+---
+
+SYMPTOMS: "My blood pressure readings have been consistently high for the past month. I've been having occasional headaches and feeling dizzy. Sometimes I notice ringing in my ears."
+
+PREDICTION: Migraine
+
+{"critique": "Poor prediction. The symptoms clearly point to Hypertension: 1) Consistently elevated blood pressure readings are diagnostic, 2) Headaches and dizziness are common hypertensive symptoms, 3) Tinnitus (ringing in ears) is associated with high blood pressure, 4) The persistent nature over a month suggests chronic hypertension rather than situational elevation. Migraines typically present with more severe, episodic headaches with associated visual symptoms.", "outcome": "bad"}
+
+---
+
+SYMPTOMS: "I've been experiencing frequent urination and excessive thirst. I feel tired all the time and have noticed I'm losing weight despite eating normally. My vision sometimes gets blurry."
+
+PREDICTION: Diabetes
+
+{"critique": "Excellent prediction. The symptom constellation is classic for diabetes: 1) Polydipsia (excessive thirst) and polyuria (frequent urination) are cardinal symptoms, 2) Fatigue is common due to cellular glucose utilization problems, 3) Unexplained weight loss suggests metabolic dysfunction, 4) Blurry vision indicates possible early diabetic effects on eyes. These symptoms together strongly suggest underlying hyperglycemia.", "outcome": "good"}
+
+---
+
+SYMPTOMS: {{prompt}}
+
+PREDICTION: {{prediction}}
+
+---
+
